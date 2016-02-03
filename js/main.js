@@ -12,12 +12,27 @@ $('button')
   });
 
 var checkcombo = function() {
-  // Each time a button is clicked, check the combo:
-  // If no number are correct, the background should be #d27666
-  // If any one number is correct, the background should be #e69458
-  // if any two numbers are correct, the background should be #e3cb67
-  // If any three numbers are correct, the background should be #bcdd4e
 
+var one = $('.one').text();
+var two = $('.two').text();
+var three = $('.three').text();
+
+//If all numbers are correct
+if ( one == dial1 && two == dial2 && three == dial3 ) { 
+    $('body').css('background-color', '#bcdd4e'); 
+}
+//If two numbers are correct
+else if (one == dial1 && two == dial2 || two == dial2 && three == dial3 || one == dial1  && three == dial3) {
+  $('body').css('background-color', '#e3cb67');
+}
+//If one number is correct
+else if (one == dial1 || two == dial2 || three == dial3) {
+  $('body').css('background-color', '#e69458');
+}
+//If none of the numbers are correct
+else {
+  $('body').css('background-color', '#d27666');
+}
 
 
 
